@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teste', function () {
-    echo 'oie';
+Route::get('/teste/{algo?}', function ($algo = null) {
+    return "o teste funcionou {$algo}" ;
+});
+
+Route::get('/view/{param?}', function ($param = null) {
+    return view('view', [
+        'param' => $param,
+    ]) ;
 });
