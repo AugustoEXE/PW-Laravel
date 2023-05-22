@@ -1,0 +1,11 @@
+{
+    "tailwindCSS.includeLanguages": {
+        "blade": "html"
+    },
+    "emmet.includeLanguages": {
+        "blade": "html"
+    },
+    "files.associations": {
+        "*.blade": "tailwindcss"
+      }
+}
