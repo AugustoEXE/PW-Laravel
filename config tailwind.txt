@@ -7,5 +7,63 @@
     },
     "files.associations": {
         "*.blade": "tailwindcss"
-      }
+    }
 }
+
+
+{
+    "workbench.colorTheme": "Tomorrow Night Eighties Operator Mono",
+    "workbench.iconTheme": "material-icon-theme",
+    "[html]": {
+
+
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+      "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "files.associations": {
+      "blade": "tailwindcss"
+    },
+    "tailwindCSS.includeLanguages": {
+      "*.blade.php": "html"
+  },
+    "emmet.includeLanguages": {
+      "*.blade.php": "html"
+    },
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.fontWeight": "400",
+    "[twig]": {
+      "editor.defaultFormatter": "mblode.twig-language-2"
+    },
+    "[handlebars]": {
+      "editor.defaultFormatter": "embertooling.prettier-for-handlebars-vscode"
+    },
+    "php.format.rules.arrayInitializersAlignKeyValuePairs": false,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "blade.format.enable": true,
+  "[blade]": {
+      "editor.autoClosingBrackets": "always",
+      "editor.defaultFormatter": "onecentlin.laravel-blade",
+  },
+    "terminal.integrated.enableFileLinks": false,
+    "terminal.integrated.fontSize": 11,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "sonarlint.rules": {
+      "php:S103": {
+        "level": "off"
+      }
+    },
+
+
+  }
+
