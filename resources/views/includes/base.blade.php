@@ -10,9 +10,9 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="bg-gray-900 text-white">
+<body class="bg-zinc-800 text-zinc-200" >
     <h1 class="text-5xl font-bold m-5">Site mto massa</h1>
-    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700 m-0">
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-zinc-700 m-0">
     @yield('content')
 
 </body>

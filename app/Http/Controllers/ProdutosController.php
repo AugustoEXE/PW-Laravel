@@ -9,28 +9,20 @@ class ProdutosController extends Controller
 {
     public function index()
     {
-        try {
-            return view('produtos.index');
-        }catch (Exception $e) {
-            return $e->getMessage();
-        }
+
+        return view('produtos.index');
     }
     public function add()
     {
-        try {
+        return view('produtos.add');
+    }
 
-
-        }catch (Exception $e) {
-            return $e->getMessage();
-        }
+    public function addSave(Request $form)
+    {
+        dd($form);
     }
     public function view()
     {
-        try {
-
-
-        }catch (Exception $e) {
-            return $e->getMessage();
-        }
+        // a completar
     }
 }

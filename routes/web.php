@@ -14,4 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-route::get('/produtos', [ProdutosController::class, 'index']);
+route::get('/', fn () => view('welcome'));
+
+route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
+
+route::get('/produtos/add', [ProdutosController::class, 'add'])->name('produtos.add');
+
+
+route::post('/produtos/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');
