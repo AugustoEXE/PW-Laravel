@@ -20,5 +20,7 @@ route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
 
 route::get('/produtos/add', [ProdutosController::class, 'add'])->name('produtos.add');
 
+route::get('/produtos/list', [ProdutosController::class, 'index'])->name('produtos.list');
+
 
 route::post('/produtos/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');

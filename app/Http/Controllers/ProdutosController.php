@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -9,8 +10,10 @@ class ProdutosController extends Controller
 {
     public function index()
     {
-
-        return view('produtos.index');
+        $prods = Produto::all();
+        return view('produtos.index', [
+            'prods' => $prods
+        ]);
     }
     public function add()
     {
@@ -19,10 +22,18 @@ class ProdutosController extends Controller
 
     public function addSave(Request $form)
     {
-        dd($form);
+        $dados = $form->validate([
+            'name' => 'required|min:3',
+            'price' => 'required|min:0|numeric',
+            'quantity' => 'required|min:0'
+        ]);
+        Produto::create($form->toArray());
+        return redirect()->route('produtos');
+
     }
     public function view()
     {
         // a completar
     }
+
 }
