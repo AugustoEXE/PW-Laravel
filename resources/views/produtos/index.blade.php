@@ -21,15 +21,17 @@
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">Nome</th>
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">Preço</th>
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">Quantidade</th>
+            <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">Editar</th>
         </tr>
 
         @foreach ($prods as $prod)
 
         <tr class="odd:bg-zinc-750">
             <td class="border border-zinc-700 h-14 text-center text-lg">{{$prod->id}}</td>
-            <td class="border border-zinc-700 h-14 text-center text-lg">{{$prod->name}}</td>
+            <td class="border border-zinc-700 h-14 text-center text-lg"><a class="underline underline-offset-2 hover:text-zinc-400  " href="{{ route('produtos.view', $prod->id) }}">{{$prod->name}}</a></td>
             <td class="border border-zinc-700 h-14 text-center text-lg">R$ {{number_format($prod->price, 2, ',')}}</td>
             <td class="border border-zinc-700 h-14 text-center text-lg">{{$prod->quantity}}</td>
+            <td class="border border-zinc-700 h-14 text-center text-lg"><a href="{{ route('produtos.edit', $prod->id) }}" ><button class="rounded bg-blue-600 h-10 w-full"><ion-icon name="create-outline"></ion-icon> Editar </button></a></td>
         </tr>
         @endforeach
 

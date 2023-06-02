@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProdutosController;
+use App\Models\Produto;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,8 @@ route::get('/produtos/add', [ProdutosController::class, 'add'])->name('produtos.
 
 route::get('/produtos/list', [ProdutosController::class, 'index'])->name('produtos.list');
 
+route::get('/produtos/{produto}', [ProdutosController::class, 'view'])->name('produtos.view');
+
+route::get('/produtos/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit');
 
 route::post('/produtos/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');

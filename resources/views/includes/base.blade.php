@@ -15,6 +15,9 @@
     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-zinc-700 m-0">
     @yield('content')
 
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
