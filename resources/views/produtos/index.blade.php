@@ -4,8 +4,13 @@
 
 
 @section('content')
+
 <div class="m-auto mb-3 text-center w-3/4">
-    <h2 class="text-3xl m-auto font-semibold">Produtos</h2>
+    @if (session('sucesso'))
+    <div class="bg-green-400 rounded my-5 text-zinc-800"><ion-icon name="checkmark-circle-outline" ></ion-icon> {{session('sucesso')}}</div>
+
+    @endif
+    <h2 class="text-3xl my-auto  mt-6 font-semibold">Produtos</h2>
 </div>
 
 <div class="m-auto w-3/4 p-0">
@@ -15,7 +20,7 @@
         </a>
     </div>
 
-    <table class="border-separate border-spacing-2 border table-auto border-zinc-500 w-full ">
+    <table class="border-separate border-spacing-2 border table-auto border-zinc-500 w-full">
         <tr>
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">ID</th>
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">Nome</th>
@@ -28,10 +33,16 @@
 
         <tr class="odd:bg-zinc-750">
             <td class="border border-zinc-700 h-14 text-center text-lg">{{$prod->id}}</td>
-            <td class="border border-zinc-700 h-14 text-center text-lg"><a class="underline underline-offset-2 hover:text-zinc-400  " href="{{ route('produtos.view', $prod->id) }}">{{$prod->name}}</a></td>
-            <td class="border border-zinc-700 h-14 text-center text-lg">R$ {{number_format($prod->price, 2, ',')}}</td>
+            <td class="border border-zinc-700 h-14 text-center text-lg"><a
+                    class="underline underline-offset-2 hover:text-zinc-400  "
+                    href="{{ route('produtos.view', $prod->id) }}">{{$prod->name}}</a></td>
+            <td class="border border-zinc-700 h-14 text-center text-lg">R$ {{number_format($prod->price, 2, ',', '.')}}
+            </td>
             <td class="border border-zinc-700 h-14 text-center text-lg">{{$prod->quantity}}</td>
-            <td class="border border-zinc-700 h-14 text-center text-lg"><a href="{{ route('produtos.edit', $prod->id) }}" ><button class="rounded bg-blue-600 h-10 w-full"><ion-icon name="create-outline"></ion-icon> Editar </button></a></td>
+            <td class="border border-zinc-700 h-14 text-center text-lg"><a
+                    href="{{ route('produtos.edit', $prod->id) }}"><button class="rounded bg-blue-600 h-10 w-full">
+                        <ion-icon name="create-outline"></ion-icon> Editar
+                    </button></a></td>
         </tr>
         @endforeach
 
