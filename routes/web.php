@@ -27,10 +27,10 @@ route::get('/produtos/{produto}', [ProdutosController::class, 'view'])->name('pr
 
 route::get('/produtos/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit');
 
-route::get('/produtos/delete/{produto}', [Produto::class, 'delete'])->name('produtos.delete');
+route::get('/produtos/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
 
 route::post('/produtos/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');
 
 route::post('/produtos/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave');
 
-route::post('/produtos/edit/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
+route::delete('/produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');

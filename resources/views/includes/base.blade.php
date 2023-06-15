@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-zinc-800 text-zinc-200">
-    <nav class="bg-white border-gray-200 dark:bg-zinc-900">
+    <nav class="bg-white border-gray-200 dark:bg-zinc-900 sticky top-0">
         <div class="flex flex-wrap items-center justify-between m-0 p-4">
             <a href="{{ route('home') }}" class="flex items-center">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Site mto massa</span>

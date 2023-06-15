@@ -58,10 +58,15 @@ class ProdutosController extends Controller
 
         return redirect()->route('produtos')->with('sucesso', 'Produto alterado com sucesso');
     }
-    public function delete(){
-        //a
+    public function delete(Produto $produto)
+    {
+        return view('produtos.delete', [
+            'prod' => $produto,
+        ]);
     }
-    public function deleteForReal(){
-        //a
+    public function deleteForReal(Produto $produto)
+    {
+        $produto->delete();
+        return redirect()->route('produtos')->with('sucesso', 'Produto apagado com sucesso!');
     }
 }
