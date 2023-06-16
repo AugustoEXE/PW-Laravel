@@ -11,13 +11,13 @@
 </head>
 
 <body class="bg-zinc-800 text-zinc-200">
-    <nav class="bg-white border-gray-200 dark:bg-zinc-900 sticky top-0">
+    <nav class="bg-white border-gray-200 dark:bg-zinc-900 sticky z-50 top-0">
         <div class="flex flex-wrap items-center justify-between m-0 p-4">
             <a href="{{ route('home') }}" class="flex items-center">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Site mto massa</span>
             </a>
 
-            <div class="hidden mr-5 w-full md:block md:w-auto" id="navbar-default">
+             <div class="hidden mr-5 w-full md:block md:w-auto" id="navbar-default">
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-zinc-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-zinc-800 md:dark:bg-zinc-900 dark:border-gray-700">
                     <li>

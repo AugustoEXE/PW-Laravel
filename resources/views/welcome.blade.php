@@ -3,5 +3,7 @@
 @section('title' ,'Produtos - ver')
 
 @section('content')
-<h2 class="">Site massa</h2>
+<div class="w-full content-center">
+    <h2 class="text-center text-5xl font-bold my-5">Dashboard</h2>
+</div>
 @endsection
