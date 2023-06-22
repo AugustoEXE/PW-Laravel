@@ -33,4 +33,6 @@ route::post('/produtos/add', [ProdutosController::class, 'addSave'])->name('prod
 
 route::post('/produtos/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave');
 
+route::post('/produtos', [ProdutosController::class, 'index']);
+
 route::delete('/produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');

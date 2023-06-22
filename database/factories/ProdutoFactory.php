@@ -34,6 +34,9 @@ class ProdutoFactory extends Factory
             'Groselha',
             'Rabanete',
             'Granada',
+            'Carro',
+            'Moto',
+            
         ];
 
 

@@ -17,7 +17,7 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Site mto massa</span>
             </a>
 
-             <div class="hidden mr-5 w-full md:block md:w-auto" id="navbar-default">
+            <div class="hidden mr-5 w-full md:block md:w-auto" id="navbar-default">
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-zinc-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-zinc-800 md:dark:bg-zinc-900 dark:border-gray-700">
                     <li>
@@ -30,7 +30,6 @@
         </div>
     </nav>
     @yield('content')
-
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
