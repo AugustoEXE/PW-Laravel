@@ -15,10 +15,10 @@ class ProdutosController extends Controller
             $order = $request->order == 'asc' ? 'asc' : 'desc';
 
             $prods = Produto::where('name', 'LIKE', "%{$request->search}%")
-                ->orderBy('name', $order)
-                ->get();
+                ->orderBy('id', $order)
+                ->paginate();
         } else {
-            $prods = Produto::all();
+            $prods = Produto::paginate();
         }
         return view('produtos.index', [
             'prods' => $prods

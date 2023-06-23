@@ -71,10 +71,10 @@
                 </td>
             </tr>
         @endforeach
-
     </table>
-
-
+<div class="">
+        {{$prods->links("vendor.pagination.default")}}
+</div>
 
 
 </div>
