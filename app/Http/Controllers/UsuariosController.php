@@ -4,11 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class UsuariosController extends Controller
 {
+
+    public function login(Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            $data = $request->validate([
+                'email' => 'required',
+                'password' => 'required',
+            ]);
+
+            if (Auth::attempt($data)) {
+                return redirect()->route('home');
+            } else {
+                return redirect()->route('login')->with('error', 'Credenciais incorretas');
+            }
+        }
+
+        return view('auth.login');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
+
     public function index()
     {
         $usuarios = Usuario::paginate();
@@ -23,6 +49,7 @@ class UsuariosController extends Controller
 
     public function store(Request $data)
     {
+        $data['password'] = Hash::make($data['password']);
         Usuario::create($data->toArray());
         return redirect()->route('usuarios')->with('sucesso', 'usuario inserido com sucesso');
     }

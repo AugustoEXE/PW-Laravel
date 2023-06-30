@@ -6,10 +6,19 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
-        colors:{
+        extend: {
+            backgroundImage: {
+                'library': "url('./public/img/fundo.jpg')"
+            },
+            fontFamily:{
+                condensed: ['Roboto Condensed', 'sans-sefif'],
+                belanosima: ['Belanosima', 'serif']
+            },
+        },
+        colors: {
             'zinc-750': '#393940'
-        }
+        },
+
     },
     plugins: [],
 }

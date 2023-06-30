@@ -9,13 +9,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>@yield('title')</title>
 </head>
-
 <body class="bg-zinc-800 text-zinc-200">
     <nav class="bg-white border-gray-200 dark:bg-zinc-900 sticky z-50 top-0">
         <div class="flex flex-wrap items-center justify-between m-0 p-4">
             <a href="{{ route('home') }}" class="flex items-center">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Site mto massa</span>
             </a>
+            <div>
+                @if (Auth::user())
+                <div class="font-belanosima text-xl">Olá {{Auth::user()->name}}</div>
+                @else
+                <div class="font-belanosima text-xl"><a class="underline" href="{{route('login')}}">Faça seu login</a></div>
+                @endif
+            </div>
 
             <div class="hidden mr-5 w-full md:block md:w-auto" id="navbar-default">
                 <ul
@@ -30,6 +36,13 @@
                             class="block py-2 pl-3 pr-4 text-white bg-zinc-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-zinc-300 hover:text-zinc-100"
                             aria-current="page">Usuarios</a>
                     </li>
+                    @if (Auth::user())
+                    <li>
+                        <a href="{{ route('logout') }}"
+                            class="block py-2 pl-3 pr-4 text-white font-belanosima font-bold text-xl bg-zinc-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-zinc-300 hover:text-zinc-100"
+                            aria-current="page">Logout</a>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>

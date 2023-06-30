@@ -50,7 +50,6 @@
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">ID</th>
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">Nome</th>
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">E-mail</th>
-            <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">Senha</th>
             <th class="border border-zinc-600 bg-zinc-900 font-bold text-lg">Ações</th>
 
         </tr>
@@ -63,7 +62,6 @@
                     class="underline underline-offset-2 hover:text-zinc-400  "
                     href="{{ route('usuarios.view', $usuario->id) }}">{{$usuario->name}}</a></td>
             <td class="border border-zinc-700 h-14 text-center text-lg">{{$usuario->email}}</td>
-            <td class="border border-zinc-700 h-14 text-center text-lg">{{$usuario->password}}</td>
             <td class="border border-zinc-700 h-14 text-center text-lg">
                 <a href="{{ route('usuarios.edit', $usuario->id) }}" class="inline"><button
                         class="rounded bg-blue-600 h-10 w-1/3 inline ">

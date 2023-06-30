@@ -19,46 +19,61 @@ use Illuminate\Support\Facades\Route;
 
 route::get('/', fn () => view('welcome'))->name('home');
 
+
+/************************************/
+//        rotas de login            //
+/************************************/
+
+route::get('/login', [UsuariosController::class, 'login'])->name('login');
+
+route::post('/login', [UsuariosController::class, 'login'])->name('login.effective');
+
+route::get('/logout', [UsuariosController::class, 'logout'])->name('logout');
 /************************************/
 //        rotas de produtos          //
 /************************************/
 
-route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
+route::prefix('/produtos')->middleware('auth')->group(function () {
 
-route::get('/produtos/add', [ProdutosController::class, 'add'])->name('produtos.add');
+    route::get('', [ProdutosController::class, 'index'])->name('produtos');
 
-route::get('/produtos/list', [ProdutosController::class, 'index'])->name('produtos.list');
+    route::get('/add', [ProdutosController::class, 'add'])->name('produtos.add');
 
-route::get('/produtos/{produto}', [ProdutosController::class, 'view'])->name('produtos.view');
+    route::get('/list', [ProdutosController::class, 'index'])->name('produtos.list');
 
-route::get('/produtos/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit');
+    route::get('/{produto}', [ProdutosController::class, 'view'])->name('produtos.view');
 
-route::get('/produtos/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
+    route::get('/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit');
 
-route::post('/produtos/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');
+    route::get('/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
 
-route::post('/produtos/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave');
+    route::post('/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');
 
-route::post('/produtos', [ProdutosController::class, 'index']);
+    route::post('/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave');
 
-route::delete('/produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
+    route::post('', [ProdutosController::class, 'index']);
+
+    route::delete('/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
+});
 
 /************************************/
 //        rotas de usuarios         //
 /************************************/
 
-Route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios');
+route::prefix('/usuarios')->middleware('auth')->group(function () {
+    Route::get('', [UsuariosController::class, 'index'])->name('usuarios');
 
-Route::get('/usuarios/create', [UsuariosController::class, 'create'])->name('usuarios.create');
+    Route::get('/create', [UsuariosController::class, 'create'])->name('usuarios.create');
 
-Route::post('/usuarios/create', [UsuariosController::class, 'store'])->name('usuarios.store');
+    Route::post('/create', [UsuariosController::class, 'store'])->name('usuarios.store');
 
-route::get('/usuarios/{usuario}', [UsuariosController::class, 'view'])->name('usuarios.view');
+    route::get('/{usuario}', [UsuariosController::class, 'view'])->name('usuarios.view');
 
-route::get('/usuarios/edit/{usuario}', [UsuariosController::class, 'edit'])->name('usuarios.edit');
+    route::get('/edit/{usuario}', [UsuariosController::class, 'edit'])->name('usuarios.edit');
 
-route::get('/usuarios/delete/{usuario}', [UsuariosController::class, 'delete'])->name('usuarios.delete');
+    route::get('/delete/{usuario}', [UsuariosController::class, 'delete'])->name('usuarios.delete');
 
-route::delete('/usuarios/delete/{usuario}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
+    route::delete('/delete/{usuario}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
 
-route::post('/usuarios/edit/{usuario}', [UsuariosController::class, 'editSave'])->name('usuarios.editSave');
+    route::post('/edit/{usuario}', [UsuariosController::class, 'editSave'])->name('usuarios.editSave');
+});
