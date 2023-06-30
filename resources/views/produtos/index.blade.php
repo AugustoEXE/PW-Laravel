@@ -12,7 +12,7 @@
     </div>
 
     @endif
-    <h2 class="text-3xl my-auto  mt-6 font-semibold">Produtos</h2>
+    <h2 class="text-3xl my-auto  mt-6 font-semibold ">Produtos</h2>
 </div>
 
 

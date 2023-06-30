@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\UsuariosController;
 use App\Models\Produto;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 route::get('/', fn () => view('welcome'))->name('home');
+
+/************************************/
+//        rotas de produtos          //
+/************************************/
 
 route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
 
@@ -36,3 +42,23 @@ route::post('/produtos/edit/{produto}', [ProdutosController::class, 'editSave'])
 route::post('/produtos', [ProdutosController::class, 'index']);
 
 route::delete('/produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
+
+/************************************/
+//        rotas de usuarios         //
+/************************************/
+
+Route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios');
+
+Route::get('/usuarios/create', [UsuariosController::class, 'create'])->name('usuarios.create');
+
+Route::post('/usuarios/create', [UsuariosController::class, 'store'])->name('usuarios.store');
+
+route::get('/usuarios/{usuario}', [UsuariosController::class, 'view'])->name('usuarios.view');
+
+route::get('/usuarios/edit/{usuario}', [UsuariosController::class, 'edit'])->name('usuarios.edit');
+
+route::get('/usuarios/delete/{usuario}', [UsuariosController::class, 'delete'])->name('usuarios.delete');
+
+route::delete('/usuarios/delete/{usuario}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
+
+route::post('/usuarios/edit/{usuario}', [UsuariosController::class, 'editSave'])->name('usuarios.editSave');

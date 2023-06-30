@@ -1,6 +1,6 @@
 @tailwind base;
 *::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
     background-color: #3f3f46;
     border-radius: 8px;
   }
@@ -8,6 +8,8 @@
   *::-webkit-scrollbar-thumb {
     background-color: #17171a;
     border-radius: 8px;
+    width: 5px;
   }
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
