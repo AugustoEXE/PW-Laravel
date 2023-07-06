@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,13 +21,13 @@ class UsuariosController extends Controller
             ]);
 
             if (Auth::attempt($data)) {
-                return redirect()->route('home');
+                return redirect()->intended('home');
             } else {
                 return redirect()->route('login')->with('error', 'Credenciais incorretas');
             }
         }
 
-        return view('auth.login');
+        return view('autentica.login');
     }
 
     public function logout()
@@ -50,7 +51,10 @@ class UsuariosController extends Controller
     public function store(Request $data)
     {
         $data['password'] = Hash::make($data['password']);
-        Usuario::create($data->toArray());
+        $usr = Usuario::create($data->toArray());
+
+        event(new Registered($usr));
+
         return redirect()->route('usuarios')->with('sucesso', 'usuario inserido com sucesso');
     }
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\UsuariosController;
 use App\Models\Produto;
 use App\Models\Usuario;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 route::get('/', fn () => view('welcome'))->name('home');
 
 
@@ -29,8 +32,15 @@ route::get('/login', [UsuariosController::class, 'login'])->name('login');
 route::post('/login', [UsuariosController::class, 'login'])->name('login.effective');
 
 route::get('/logout', [UsuariosController::class, 'logout'])->name('logout');
+
+Route::get('/email/verify', fn () => view('auth.verify-email'))->middleware('auth')->name("verification.notice");
+
+route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 /************************************/
-//        rotas de produtos          //
+//        rotas de produtos         //
 /************************************/
 
 route::prefix('/produtos')->middleware('auth')->group(function () {
